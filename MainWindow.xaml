@@ -6,11 +6,50 @@
         WindowState="Maximized"
         ResizeMode="NoResize"
         Background="White">
+
     <Grid>
+        <!-- Close Button -->
         <Button Content="Close"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="10"
                 Click="CloseButton_Click" />
+
+        <!-- Loading Screen -->
+        <Grid Name="LoadingScreen" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel>
+                <!-- Logo -->
+                <Image Source="Images/Logo/Xpand_FB_Logo.jpg"
+                       Width="150"
+                       Height="150"
+                       Margin="0,0,0,20" />
+
+                <!-- Loading Text -->
+                <!-- Loading Text -->
+                <TextBlock Name="LoadingTextBlock"
+           Text="Loading, please wait..."
+           FontSize="16"
+           FontWeight="Bold"
+           Foreground="DeepPink"
+           HorizontalAlignment="Center"
+           Margin="0,0,0,20" />
+
+
+                <!-- Progress Bar -->
+                <ProgressBar Name="ProgressBar"
+                             Width="300"
+                             Height="20"
+                             Foreground="DeepPink"
+                             Minimum="0"
+                             Maximum="100"
+                             Value="0" />
+            </StackPanel>
+        </Grid>
+
+        <!-- Main Content -->
+        <Grid Name="MainContent" Visibility="Collapsed">
+            <!-- Add your main app UI here -->
+            
+        </Grid>
     </Grid>
 </Window>

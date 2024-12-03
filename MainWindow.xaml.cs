@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
-using System.Drawing;
 
 namespace NPIApp
 {
@@ -27,7 +17,6 @@ namespace NPIApp
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool ShowWindow(int hWnd, int nCmdShow);
 
-
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
@@ -35,8 +24,7 @@ namespace NPIApp
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
         [DllImport("user32.dll", SetLastError = true)]
-        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter,
-            int X, int Y, int cx, int cy, uint uFlags);
+        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
         // Constants for window styles and flags
         private const int GWL_STYLE = -16;
@@ -58,16 +46,62 @@ namespace NPIApp
 
             // Start in full-screen mode
             EnterFullScreen();
+
+            // Start the initial loading process
+            StartLoading();
         }
 
+        private async void StartLoading()
+        {
+            await ShowLoadingScreenAsync(async () =>
+            {
+                // Simulate a loading process
+                for (int i = 0; i <= 100; i++)
+                {
+                    // Update the progress bar value
+                    ProgressBar.Value = i;
 
-        // Helper methods for full-screen handling
+                    // Simulate work with a delay
+                    await Task.Delay(50); // Adjust delay as needed
+                }
+            }, "Loading, please wait...");
+        }
+
+        // Reusable method to show the loading screen
+        public async Task ShowLoadingScreenAsync(Func<Task> action, string loadingMessage = "Loading, please wait...")
+        {
+            try
+            {
+                // Hide the cursor and show the loading screen
+                this.Cursor = System.Windows.Input.Cursors.None;
+                LoadingScreen.Visibility = Visibility.Visible;
+                MainContent.Visibility = Visibility.Collapsed;
+
+                // Update the loading text
+                var loadingText = LoadingScreen.FindName("LoadingTextBlock") as TextBlock;
+                if (loadingText != null)
+                {
+                    loadingText.Text = loadingMessage;
+                }
+
+                // Execute the passed action
+                await action();
+            }
+            finally
+            {
+                // Restore the cursor and hide the loading screen
+                this.Cursor = System.Windows.Input.Cursors.Arrow;
+                LoadingScreen.Visibility = Visibility.Collapsed;
+                MainContent.Visibility = Visibility.Visible;
+            }
+        }
+
         private void EnterFullScreen()
         {
             IntPtr hWnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
 
             // Get the monitor where the window is currently displayed
-            var screen = Screen.FromHandle(hWnd);
+            var screen = System.Windows.Forms.Screen.FromHandle(hWnd);
 
             // Use monitor's bounds to calculate fullscreen dimensions
             int screenWidth = screen.Bounds.Width;
@@ -85,14 +119,8 @@ namespace NPIApp
             this.Focus();
         }
 
-
-
-
-
-
         private void ExitFullScreen()
         {
-            // Get the current window handle
             IntPtr hWnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
 
             // Restore the title bar and borders
@@ -111,15 +139,11 @@ namespace NPIApp
             this.Topmost = false;
         }
 
-
-
-
-        // Handle key presses for toggling full-screen
-        protected override void OnKeyDown(System.Windows.Input.KeyEventArgs e)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
 
-            if (e.Key == System.Windows.Input.Key.Escape)
+            if (e.Key == Key.Escape)
             {
                 // Exit fullscreen and restore taskbar
                 int taskBarHandle = FindWindow("Shell_TrayWnd", null);
@@ -127,7 +151,7 @@ namespace NPIApp
 
                 ExitFullScreen();
             }
-            else if (e.Key == System.Windows.Input.Key.F11)
+            else if (e.Key == Key.F11)
             {
                 // Hide the taskbar and enter fullscreen
                 int taskBarHandle = FindWindow("Shell_TrayWnd", null);
@@ -137,8 +161,6 @@ namespace NPIApp
             }
         }
 
-
-
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
@@ -147,7 +169,6 @@ namespace NPIApp
             int taskBarHandle = FindWindow("Shell_TrayWnd", null);
             ShowWindow(taskBarHandle, SW_SHOW);
         }
-
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -164,7 +185,5 @@ namespace NPIApp
                 EnterFullScreen(); // Ensure fullscreen is re-applied
             }
         }
-
-
     }
 }
