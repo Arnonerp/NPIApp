@@ -1,0 +1,14 @@
+C:\NPI\NPIApp\bin\Debug\NPIApp.exe.config
+C:\NPI\NPIApp\bin\Debug\NPIApp.exe
+C:\NPI\NPIApp\bin\Debug\NPIApp.pdb
+C:\NPI\NPIApp\obj\Debug\NPIApp.csproj.AssemblyReference.cache
+C:\NPI\NPIApp\obj\Debug\MainWindow.baml
+C:\NPI\NPIApp\obj\Debug\MainWindow.g.cs
+C:\NPI\NPIApp\obj\Debug\App.g.cs
+C:\NPI\NPIApp\obj\Debug\NPIApp_MarkupCompile.cache
+C:\NPI\NPIApp\obj\Debug\NPIApp.g.resources
+C:\NPI\NPIApp\obj\Debug\NPIApp.Properties.Resources.resources
+C:\NPI\NPIApp\obj\Debug\NPIApp.csproj.GenerateResource.cache
+C:\NPI\NPIApp\obj\Debug\NPIApp.csproj.CoreCompileInputs.cache
+C:\NPI\NPIApp\obj\Debug\NPIApp.exe
+C:\NPI\NPIApp\obj\Debug\NPIApp.pdb
