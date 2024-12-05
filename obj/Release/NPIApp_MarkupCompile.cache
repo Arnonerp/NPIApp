@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\
+C:\Users\arnon\Source\Repos\NPIApp\obj\Release\
 NPIApp
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\arnon\Source\Repos\NPIApp\App.xaml
 1219584333
 
