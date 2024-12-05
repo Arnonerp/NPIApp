@@ -12,3 +12,17 @@ C:\NPI\NPIApp\obj\Debug\NPIApp.csproj.GenerateResource.cache
 C:\NPI\NPIApp\obj\Debug\NPIApp.csproj.CoreCompileInputs.cache
 C:\NPI\NPIApp\obj\Debug\NPIApp.exe
 C:\NPI\NPIApp\obj\Debug\NPIApp.pdb
+C:\Users\arnon\Source\Repos\NPIApp\bin\Debug\NPIApp.exe.config
+C:\Users\arnon\Source\Repos\NPIApp\bin\Debug\NPIApp.exe
+C:\Users\arnon\Source\Repos\NPIApp\bin\Debug\NPIApp.pdb
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\NPIApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\UI\MainWindow.baml
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\UI\MainWindow.g.cs
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\App.g.cs
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\NPIApp_MarkupCompile.cache
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\NPIApp.g.resources
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\NPIApp.Properties.Resources.resources
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\NPIApp.csproj.GenerateResource.cache
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\NPIApp.csproj.CoreCompileInputs.cache
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\NPIApp.exe
+C:\Users\arnon\Source\Repos\NPIApp\obj\Debug\NPIApp.pdb
